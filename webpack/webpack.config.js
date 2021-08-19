@@ -2,66 +2,83 @@
 // some how storybook is still using webpack@1.*, come on!
 const webpack = require('webpack');
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
 module.exports = {
+  mode: 'production',
+  entry: {
+    main: path.resolve(__dirname, 'components/index.js'),
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    library: {
+      type: 'umd',
+    },
+    globalObject: 'this',
+  },
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
+  },
   resolve: {
     extensions: ['.jsx', '.js', '.json'],
   },
   module: {
     rules: [
       {
-        test: /\.svg$/,
-        loader: 'file-loader?name=[hash].[ext]',
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'babel-loader',
+        }],
       },
+
       {
-        test: /\.(jpe?g|png|gif)$/i,
-        use: [
-          'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              bypassOnDebug: true,
-              mozjpeg: {
-                progressive: true,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              optipng: {
-                optimizationLevel: 4,
-              },
-              pngquant: {
-                quality: '75-90',
-                speed: 3,
-              },
-            },
-          },
-        ],
+        test: /\.svg$/i,
+        use: ['@svgr/webpack'],
       },
+
       {
-        test: /\.scss|\.css$/,
+        test: /\.(png|gif)$/i,
+        type: 'asset/inline',
+      },
+
+      {
+        test: /\.scss$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
             options: {
               modules: true,
               importLoaders: 2,
-              localIdentName: '[name]__[local]__[hash:base64:5]',
+              localIdentName: '[hash:base64:5]',
             },
           },
-          'postcss-loader',
           'sass-loader',
         ],
       },
-    ]
+    ],
   },
+
+  optimization: {
+    minimizer: [
+      '...',
+      new CssMinimizerPlugin(),
+    ],
+  },
+
   plugins: [
     new webpack.DefinePlugin({
-      __DEVELOPMENT__: true,
       __CLIENT__: true,
-      __SERVER__: false
+      __SERVER__: false,
     }),
-  ]
-}
+    new MiniCssExtractPlugin({
+      filename: 'css/common.css',
+    }),
+  ],
+};
