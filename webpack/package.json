@@ -1,17 +1,8 @@
 {
-  "name": "react-webpack-example",
+  "name": "mujing-module-demo",
   "private": true,
   "version": "0.0.1",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shanewilson/react-webpack-example.git"
-  },
-  "homepage": "https://github.com/shanewilson/react-webpack-example",
-  "author": {
-    "name": "Shane Wilson",
-    "email": "shanezilla@gmail.com",
-    "url": "https://github.com/shanewilson/"
-  },
+  "main": "dist/main.js",
   "dependencies": {
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
