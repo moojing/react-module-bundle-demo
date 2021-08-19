@@ -10,6 +10,9 @@ module.exports = {
   entry: {
     main: path.resolve(__dirname, 'components/index.js'),
   },
+  // experiments: {
+  //   outputModule:true
+  // },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',

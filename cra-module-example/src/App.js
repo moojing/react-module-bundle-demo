@@ -1,9 +1,8 @@
 import './App.css';
-import { Button } from 'webpack'
+import {Button} from 'mujing-module-demo'
 function App() {
   return (
     <div className="App">
-       Create react app
        <Button/>
     </div>
   );

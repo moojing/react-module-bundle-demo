@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import  'mujing-module-demo/dist/css/common.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
