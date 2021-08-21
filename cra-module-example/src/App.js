@@ -1,9 +1,11 @@
-import './App.css';
-import {Button} from 'mujing-module-demo'
+import "./App.css";
+import { Button } from "mujing-module-demo";
+
+console.log("Button :", Button);
 function App() {
   return (
     <div className="App">
-       <Button/>
+      <Button />
     </div>
   );
 }

@@ -1,51 +1,49 @@
 // storybook specific configuration
 // some how storybook is still using webpack@1.*, come on!
-const webpack = require('webpack');
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const webpack = require("webpack");
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
-  mode: 'production',
+  mode: "production",
   entry: {
-    main: path.resolve(__dirname, 'components/index.js'),
+    main: path.resolve(__dirname, "components/index.js"),
   },
-  // experiments: {
-  //   outputModule:true
-  // },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
     library: {
-      type: 'umd',
+      type: "commonjs2",
     },
-    globalObject: 'this',
   },
   externals: {
-    react: 'react',
-    'react-dom': 'react-dom',
+    react: "react",
+    "react-dom": "react-dom",
   },
   resolve: {
-    extensions: ['.jsx', '.js', '.json'],
+    extensions: [".jsx", ".js", ".json"],
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: [{
-          loader: 'babel-loader',
-        }],
+        use: [
+          {
+            loader: "babel-loader",
+          },
+        ],
       },
 
       {
         test: /\.svg$/i,
-        use: ['@svgr/webpack'],
+        use: ["@svgr/webpack"],
       },
 
       {
         test: /\.(png|gif)$/i,
-        type: 'asset/inline',
+        type: "asset/inline",
       },
 
       {
@@ -55,33 +53,26 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               modules: true,
               importLoaders: 2,
-              localIdentName: '[hash:base64:5]',
+              localIdentName: "[hash:base64:5]",
             },
           },
-          'sass-loader',
+          "sass-loader",
         ],
       },
     ],
   },
 
   optimization: {
-    minimizer: [
-      '...',
-      new CssMinimizerPlugin(),
-    ],
+    minimizer: ["...", new CssMinimizerPlugin()],
   },
 
   plugins: [
-    new webpack.DefinePlugin({
-      __CLIENT__: true,
-      __SERVER__: false,
-    }),
     new MiniCssExtractPlugin({
-      filename: 'css/common.css',
+      filename: "css/common.css",
     }),
   ],
 };
