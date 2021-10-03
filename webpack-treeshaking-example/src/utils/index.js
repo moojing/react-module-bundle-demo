@@ -1,7 +1,4 @@
-const { USER_NAME } = require("../constants");
+import { USER_NAME } from "../constants";
 
-const getAuthorName = () => USER_NAME;
-const greeting = () => "Hi, This is Mujing.";
-
-exports.getAuthorName = getAuthorName;
-exports.greeting = greeting;
+export const getAuthorName = () => USER_NAME;
+export const greeting = () => "Hi, This is Mujing.";

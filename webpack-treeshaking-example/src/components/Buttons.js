@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const { getAuthorName } = require("../utils");
-console.log("getAuthorName :", getAuthorName);
+import { getAuthorName } from "../utils";
 
 export default class Buttons extends Component {
   handleClick() {
@@ -13,13 +12,14 @@ export default class Buttons extends Component {
     return (
       <>
         <h2>{getAuthorName()}</h2>
+        <p> 這是一個 Tree Shaking 範例 </p>
         <ButtonWrapper>
           <Button color="blue" onClick={() => this.handleClick()}>
-            press me
+            按鈕
           </Button>
           <br />
           <Button color="red" onClick={() => this.handleClick()}>
-            press me
+            按鈕
           </Button>
         </ButtonWrapper>
       </>

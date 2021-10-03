@@ -19,7 +19,8 @@ const AppContainer = styled.div`
   width: 100%;
   height: 100%;
   font-size: 40px;
-  background: linear-gradient(20deg, rgb(219, 112, 147), #daa357);
+  background: #272727;
+  color: white;
 `;
 
 export default App;
