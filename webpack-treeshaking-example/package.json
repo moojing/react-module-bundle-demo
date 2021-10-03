@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run clean && webpack --mode=production",
-    "build:devv": "npm run clean && webpack --mode=development",
+    "build:dev": "npm run clean && webpack --mode=development",
     "clean": "rimraf dist/*",
     "dev": "webpack-dev-server --mode=development --port 3000 --inline --hot",
     "prod": "node dist/server",

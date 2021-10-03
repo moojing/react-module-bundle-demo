@@ -1,30 +1,36 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from "react";
+import styled from "styled-components";
+
+const { getAuthorName } = require("../utils");
+console.log("getAuthorName :", getAuthorName);
 
 export default class Buttons extends Component {
   handleClick() {
-    console.log('you clicked me')
+    console.log("you clicked me");
   }
 
   render() {
     return (
-      <ButtonWrapper>
-        <Button color="blue" onClick={() => this.handleClick()}>
-          press me
-        </Button>
-        <br />
-        <Button color="red" onClick={() => this.handleClick()}>
-          press me
-        </Button>
-      </ButtonWrapper>
-    )
+      <>
+        <h2>{getAuthorName()}</h2>
+        <ButtonWrapper>
+          <Button color="blue" onClick={() => this.handleClick()}>
+            press me
+          </Button>
+          <br />
+          <Button color="red" onClick={() => this.handleClick()}>
+            press me
+          </Button>
+        </ButtonWrapper>
+      </>
+    );
   }
 }
 
 const ButtonWrapper = styled.div`
   width: 200px;
   margin: 0 auto;
-`
+`;
 
 const Button = styled.button`
   border-radius: 4px;
@@ -36,15 +42,15 @@ const Button = styled.button`
   text-align: center;
   transition: all 0.5s;
   width: 100%;
-  ${props => getButtonColor(props.color)}
+  ${(props) => getButtonColor(props.color)}
 
   &:hover {
     background-color: transparent;
   }
-`
+`;
 
-const getButtonColor = color => {
-  if (color === 'blue') {
+const getButtonColor = (color) => {
+  if (color === "blue") {
     return `
       background-color: #134893;
       border: 2px solid #134893;
@@ -52,9 +58,9 @@ const getButtonColor = color => {
         color: blue;
         border: 2px solid #134893;
       }
-    `
+    `;
   }
-  if (color === 'red') {
+  if (color === "red") {
     return `
       background-color: #a92619;
       border: 2px solid #a92619;
@@ -62,6 +68,6 @@ const getButtonColor = color => {
         color: #a92619;
         border: 2px solid #a92619;
       }
-    `
+    `;
   }
-}
+};
