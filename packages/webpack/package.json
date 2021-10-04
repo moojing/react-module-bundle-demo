@@ -1,6 +1,5 @@
 {
-  "name": "mujing-module-demo",
-  "private": true,
+  "name": "mujing-module-demo-webpack",
   "version": "0.0.1",
   "main": "dist/main.js",
   "dependencies": {

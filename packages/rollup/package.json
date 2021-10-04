@@ -1,5 +1,5 @@
 {
-  "name": "mujing-module-demo",
+  "name": "mujing-module-demo-rollup",
   "description": "A Rollup Bundler Example",
   "main": "dist/cjs.js",
   "module": "dist/esm.js",

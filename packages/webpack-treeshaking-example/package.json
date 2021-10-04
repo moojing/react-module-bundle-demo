@@ -1,12 +1,11 @@
 {
-  "name": "react-webpack-example-app",
+  "name": "webpack-tree-shaking-example",
   "version": "1.1.0",
   "description": "Example using react, webpack and styled components",
   "repository": {
     "type": "git",
     "url": "https://github.com/StevenIseki/react-webpack-example"
   },
-  "author": "Steven Iseki <stevenisekimartin@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "npm run clean && webpack --mode=production",
