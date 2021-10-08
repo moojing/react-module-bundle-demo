@@ -55,6 +55,7 @@ function target(options) {
 
 module.exports = (env, options) => {
   return {
+    mode: "development",
     entry: entry(options),
     externals: externals(options),
     output: output(options),
@@ -74,8 +75,9 @@ module.exports = (env, options) => {
     },
     optimization: {
       usedExports: true,
-      sideEffects: true,
+      // sideEffects: true,
     },
+    devtool: false,
     plugins: plugins(options),
     target: target(options),
   };
