@@ -1,6 +1,6 @@
 {
   "name": "webpack-tree-shaking-example",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "An Example for Tree Shaking.",
   "sideEffects": false,
   "repository": {
