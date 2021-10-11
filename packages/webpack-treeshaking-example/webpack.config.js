@@ -75,7 +75,7 @@ module.exports = (env, options) => {
     },
     optimization: {
       usedExports: true,
-      // sideEffects: true,
+      sideEffects: true,
     },
     devtool: false,
     plugins: plugins(options),

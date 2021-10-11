@@ -2,6 +2,7 @@
   "name": "webpack-tree-shaking-example",
   "version": "1.1.0",
   "description": "Example using react, webpack and styled components",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/StevenIseki/react-webpack-example"
